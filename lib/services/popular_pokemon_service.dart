@@ -6,7 +6,7 @@ class PopularPokemonService {
   final String baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
   Future<List<Pokemon>> fetchPopularPokemons() async {
-    final url = Uri.parse('$baseUrl?limit=10'); 
+    final url = Uri.parse('$baseUrl?limit=13'); 
     try {
       final response = await http.get(url);
 
@@ -14,7 +14,7 @@ class PopularPokemonService {
         final data = jsonDecode(response.body);
         final List<Pokemon> pokemons = [];
 
-        for (int i = 2; i < data['results'].length; i++) {
+        for (int i = 1; i < data['results'].length; i++) {
           if (i % 3 != 0) {
             final pokemon = data['results'][i];
             
